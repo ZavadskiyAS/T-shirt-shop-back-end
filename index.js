@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+const todoRoutes = require('./routes/todos')
 
 // const PORT = process.evn.PORT || 5000
 const PORT = 3000
@@ -15,9 +16,11 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')
 
+app.use(todoRoutes)
+
 async function start() {
     try {
-        await mongoose.connect('', {
+        await mongoose.connect('mongodb+srv://Zavadskiy:@cluster0.usaau.mongodb.net/todos', {
             useNewUrlParser: true,
             useFindAndModify: false
         })
