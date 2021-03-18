@@ -20,8 +20,11 @@ app.use(todoRoutes)
 
 async function start() {
     try {
-        await mongoose.connect('mongodb+srv://Zavadskiy:@cluster0.usaau.mongodb.net/todos', {
+        // await mongoose.connect('mongodb+srv://localhost:27017/ltmo6llg//Zavadskiy:@cluster0.usaau.mongodb.net/todos', {
+            await mongoose.connect('mongodb+srv://Zavadskiy:g@cluster0.usaau.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
             useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
             useFindAndModify: false
         })
         app.listen(PORT, () => {
